@@ -1,0 +1,11 @@
+syntax on
+set autoindent
+set backspace=indent,eol,start
+set background=dark
+set expandtab
+set linebreak
+set modeline
+set number
+set paste
+set shiftwidth=2
+set softtabstop=2
