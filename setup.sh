@@ -31,7 +31,7 @@ check_for kns ||
   sudo ln -s ~/kubectx/kubens /usr/local/bin/kns
 [ -f /etc/bash_completion.d/kubectx.bash ] ||
   sudo ln -s ~/kubectx/completion/kubectx.bash /etc/bash_completion.d/kubectx.bash
-[ -f /etc/bash_completion.d/kubens ] ||
+[ -f /etc/bash_completion.d/kubens.bash ] ||
   sudo ln -s ~/kubectx/completion/kubens /etc/bash_completion.d/kubens.bash
 
 # Install kube-ps1 because why not
