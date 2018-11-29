@@ -13,9 +13,12 @@ check_for () {
 cd ~
 
 # Install stern to view logs
-check_for stern ||
+check_for stern || {
   sudo wget -O /usr/local/bin/stern \
     https://github.com/wercker/stern/releases/download/1.10.0/stern_linux_amd64
+  chmod +x /usr/local/bin/stern
+}
+
 [ -f /etc/bash_completion.d/stern ] ||
   stern --completion bash | sudo tee /etc/bash_completion.d/stern
 
@@ -32,10 +35,10 @@ check_for kns ||
   sudo ln -s ~/kubectx/completion/kubens /etc/bash_completion.d/kubens.bash
 
 # Install kube-ps1 because why not
-[ -d kube-ps1 ] ||
+[ -d kube-ps1 ] || {
   git clone https://github.com/jonmosco/kube-ps1
-check_for kube-ps1 ||
-  sudo ln -s ~/kube-ps1/kube-ps1 /usr/local/bin/kube-ps1
+  echo '. ~/kube-ps1/kube-ps1.sh' >> ~/.bashrc
+}
 
 # Install completion for kubectl
 [ -f /etc/bash_completion.d/kubectl ] ||
